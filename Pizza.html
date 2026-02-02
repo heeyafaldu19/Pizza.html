@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cooking With Love 🍕</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:'Poppins',sans-serif;
+  background:linear-gradient(180deg,#1a1f3c,#2d3369);
+  color:#f1f3ff;
+  text-align:center;
+}
+
+section{
+  min-height:100vh;
+  padding:60px 20px;
+}
+
+h1,h2{
+  font-family:'Playfair Display',serif;
+}
+
+.card{
+  max-width:720px;
+  margin:40px auto;
+  background:rgba(255,255,255,0.08);
+  padding:35px;
+  border-radius:22px;
+  box-shadow:0 0 30px rgba(180,190,255,0.15);
+}
+
+.step-img{
+  width:260px;
+  border-radius:18px;
+  margin:20px 0;
+}
+
+button{
+  background:rgba(255,255,255,0.15);
+  border:1px solid rgba(255,255,255,0.4);
+  color:white;
+  padding:14px 32px;
+  border-radius:30px;
+  cursor:pointer;
+  margin-top:25px;
+  font-size:15px;
+}
+
+button:hover{
+  background:rgba(255,255,255,0.25);
+}
+
+.hidden{display:none;}
+</style>
+</head>
+
+<body>
+
+<section>
+  <h1>🍓 Cooking With You</h1>
+  <p>This is not a game.<br>This is us, making something slowly.</p>
+
+  <div class="card" id="gameCard">
+    <h2 id="stepTitle">Step 1: Making the Dough</h2>
+    <img id="stepImg" class="step-img" src="https://images.unsplash.com/photo-1600628422019-efc3c2d36d8a" alt="">
+    <p id="stepText">
+      Strong hands, soft patience.<br>
+      You knead the dough like you handle life — steady and sure.
+    </p>
+    <button onclick="nextStep()">Continue 🍕</button>
+  </div>
+</section>
+
+<script>
+const steps = [
+  {
+    title:"Step 1: Making the Dough",
+    img:"https://images.unsplash.com/photo-1600628422019-efc3c2d36d8a",
+    text:"Strong hands, soft patience.<br>You knead the dough like you handle life — steady and sure."
+  },
+  {
+    title:"Step 2: Letting It Rest",
+    img:"https://images.unsplash.com/photo-1598514982314-86f8e2c44f1c",
+    text:"Some things grow quietly.<br>Just like you, when no one is watching."
+  },
+  {
+    title:"Step 3: Spreading the Sauce",
+    img:"https://images.unsplash.com/photo-1604909052743-94e838986d24",
+    text:"A little spice, a lot of heart.<br>You always know the right balance."
+  },
+  {
+    title:"Step 4: Adding the Cheese",
+    img:"https://images.unsplash.com/photo-1617196034183-421b4917c92f",
+    text:"Generous. Always.<br>Because you never do things halfway."
+  },
+  {
+    title:"Step 5: Choosing Toppings",
+    img:"https://images.unsplash.com/photo-1601924638867-3ec62b6b7c7a",
+    text:"Extra, but in the best way.<br>Life with you is never boring."
+  },
+  {
+    title:"Step 6: Into the Oven",
+    img:"https://images.unsplash.com/photo-1601050690597-df0568f70950",
+    text:"Trusting the process.<br>You’ve learned that good things take time."
+  },
+  {
+    title:"Step 7: Ready to Eat",
+    img:"https://images.unsplash.com/photo-1594007654729-407eedc4be65",
+    text:"Perfect, warm, comforting.<br>Just like the way you make me feel."
+  }
+];
+
+let current = 0;
+
+function nextStep(){
+  current++;
+  if(current >= steps.length){
+    document.getElementById("gameCard").innerHTML = `
+      <h2>🍕 Pizza Made</h2>
+      <p>
+        You didn’t rush.<br>
+        You didn’t skip steps.<br><br>
+        And that’s why it turned out perfect.
+        <br><br>
+        Just like you.
+      </p>
+      <p>Now come, let’s eat together 😌💙</p>
+    `;
+    return;
+  }
+
+  document.getElementById("stepTitle").innerHTML = steps[current].title;
+  document.getElementById("stepImg").src = steps[current].img;
+  document.getElementById("stepText").innerHTML = steps[current].text;
+}
+</script>
+
+</body>
+</html>
